@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bddfedfe69134232a3d0772ef4b99ac1" Name="Diagram1">
+        <EntityTypeShape EntityType="sistema_ventasModel.tb_usuarios" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sistema_ventasModel.roles_usuarios" Width="1.5" PointX="5.125" PointY="0.875" />
+        <AssociationConnector Association="sistema_ventasModel.FK_roles_usuarios_tb_usuarios" />
+        <EntityTypeShape EntityType="sistema_ventasModel.detalleVenta" Width="1.5" PointX="6.875" PointY="3.625" />
+        <EntityTypeShape EntityType="sistema_ventasModel.producto" Width="1.5" PointX="6.25" PointY="7.25" />
+        <EntityTypeShape EntityType="sistema_ventasModel.sysdiagrams" Width="1.5" PointX="3.25" PointY="11" />
+        <EntityTypeShape EntityType="sistema_ventasModel.tb_cliente" Width="1.5" PointX="0.875" PointY="7.375" />
+        <EntityTypeShape EntityType="sistema_ventasModel.tb_documento" Width="1.5" PointX="3.5" PointY="7.5" />
+        <EntityTypeShape EntityType="sistema_ventasModel.tb_venta" Width="1.5" PointX="2.625" PointY="3.625" />
+        <AssociationConnector Association="sistema_ventasModel.FK_detalleVenta_producto" />
+        <AssociationConnector Association="sistema_ventasModel.FK_detalleVenta_tb_venta" />
+        <AssociationConnector Association="sistema_ventasModel.FK_tb_venta_tb_cliente" />
+        <AssociationConnector Association="sistema_ventasModel.FK_tb_venta_tb_documento" />
+        <AssociationConnector Association="sistema_ventasModel.FK_tb_venta_tb_usuarios" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
