@@ -135,8 +135,8 @@ namespace appVentas.VISTA
             catch (Exception ex)
             {
 
-                textBoxCantidad.Text = "0";
-                MessageBox.Show("No puedes operar datos menores  a 0");
+                textBoxCantidad.Text = "1";
+              
                 textBoxCantidad.Select();
 
             }
@@ -187,7 +187,57 @@ namespace appVentas.VISTA
 
 
                 }
+                
             }
+            retornoid();
+        }
+
+        private void textBoxBuscarProducto_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (textBoxBuscarProducto.Text == "")
+            {
+                if (e.KeyCode== Keys.Enter)
+                {
+                    btnBuscar.PerformClick();
+                }
+              
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                using (sistema_ventasEntities1 db = new sistema_ventasEntities1())
+                {
+                    producto pr = new producto();
+                    int buscar = int.Parse(textBoxBuscarProducto.Text);
+                    pr = db.producto.Where(idBuscarr => idBuscarr.idProducto == buscar).First();
+                    textBoxidProducto.Text = Convert.ToString(pr.idProducto);
+                    textBoxNombreDeProducto.Text = Convert.ToString(pr.nombreProducto);
+                    textBoxPrecioDeProducto.Text = Convert.ToString(pr.precioProducto);
+                    textBoxCantidad.Focus();
+                    textBoxBuscarProducto.Text = "";
+                }
+            }
+        }
+
+
+        int intentos = 1;
+        private void textBoxCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (intentos == 2)
+                {
+                    btnAgregar.PerformClick();
+                   
+                    textBoxidProducto.Text = "";
+                    textBoxNombreDeProducto.Text = "";
+                    textBoxPrecioDeProducto.Text = "";
+                    textBoxTotal.Text = "";
+                    intentos = 0;
+                    textBoxCantidad.Text = "1";
+                    textBoxBuscarProducto.Focus();
+                }
+            }
+            intentos += 1;
         }
     }
 }

@@ -47,15 +47,15 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dtvProductos = new System.Windows.Forms.DataGridView();
-            this.comboBoxTipoDeDocumento = new System.Windows.Forms.ComboBox();
-            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxTotalFinal = new System.Windows.Forms.TextBox();
             this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxTipoDeDocumento = new System.Windows.Forms.ComboBox();
+            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxTotalFinal = new System.Windows.Forms.TextBox();
             this.btnGuardarVenta = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dtvProductos)).BeginInit();
@@ -158,6 +158,7 @@
             this.textBoxCantidad.TabIndex = 18;
             this.textBoxCantidad.Text = "1";
             this.textBoxCantidad.TextChanged += new System.EventHandler(this.textBoxCantidad_TextChanged);
+            this.textBoxCantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxCantidad_KeyUp);
             // 
             // textBoxBuscarProducto
             // 
@@ -166,6 +167,7 @@
             this.textBoxBuscarProducto.Size = new System.Drawing.Size(257, 20);
             this.textBoxBuscarProducto.TabIndex = 20;
             this.textBoxBuscarProducto.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBoxBuscarProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxBuscarProducto_KeyUp);
             // 
             // textBoxidProducto
             // 
@@ -235,6 +237,36 @@
             this.dtvProductos.Size = new System.Drawing.Size(843, 150);
             this.dtvProductos.TabIndex = 31;
             // 
+            // CODIGO
+            // 
+            this.CODIGO.HeaderText = "CODIGO PROD";
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
+            // 
+            // NOMBRE
+            // 
+            this.NOMBRE.HeaderText = "NOMBRE PROD";
+            this.NOMBRE.Name = "NOMBRE";
+            this.NOMBRE.ReadOnly = true;
+            // 
+            // PRECIO
+            // 
+            this.PRECIO.HeaderText = "PRECIO PROD";
+            this.PRECIO.Name = "PRECIO";
+            this.PRECIO.ReadOnly = true;
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.HeaderText = "CANTIDAD";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.ReadOnly = true;
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.HeaderText = "TOTAL";
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
+            // 
             // comboBoxTipoDeDocumento
             // 
             this.comboBoxTipoDeDocumento.FormattingEnabled = true;
@@ -271,36 +303,6 @@
             this.textBoxTotalFinal.Size = new System.Drawing.Size(199, 36);
             this.textBoxTotalFinal.TabIndex = 35;
             // 
-            // CODIGO
-            // 
-            this.CODIGO.HeaderText = "CODIGO PROD";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            // 
-            // NOMBRE
-            // 
-            this.NOMBRE.HeaderText = "NOMBRE PROD";
-            this.NOMBRE.Name = "NOMBRE";
-            this.NOMBRE.ReadOnly = true;
-            // 
-            // PRECIO
-            // 
-            this.PRECIO.HeaderText = "PRECIO PROD";
-            this.PRECIO.Name = "PRECIO";
-            this.PRECIO.ReadOnly = true;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.HeaderText = "CANTIDAD";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.HeaderText = "TOTAL";
-            this.TOTAL.Name = "TOTAL";
-            this.TOTAL.ReadOnly = true;
-            // 
             // btnGuardarVenta
             // 
             this.btnGuardarVenta.Location = new System.Drawing.Point(728, 501);
@@ -321,7 +323,6 @@
             // 
             // frmVentas
             // 
-            this.AcceptButton = this.btnAgregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 598);
