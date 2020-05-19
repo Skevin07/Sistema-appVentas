@@ -88,5 +88,10 @@ namespace appVentas.VISTA.Formulariosdebusqueda
                 envio();
             }
         }
+
+        private void btnCerrarbusqueda_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

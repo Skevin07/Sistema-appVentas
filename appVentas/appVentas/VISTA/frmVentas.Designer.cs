@@ -58,6 +58,7 @@
             this.textBoxTotalFinal = new System.Windows.Forms.TextBox();
             this.btnGuardarVenta = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -316,16 +317,28 @@
             // dtpFecha
             // 
             this.dtpFecha.CustomFormat = "YYYY-MM-DD";
-            this.dtpFecha.Location = new System.Drawing.Point(695, 27);
+            this.dtpFecha.Location = new System.Drawing.Point(695, 36);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(200, 20);
             this.dtpFecha.TabIndex = 37;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(825, 7);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 38;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 598);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.btnGuardarVenta);
             this.Controls.Add(this.textBoxTotalFinal);
@@ -392,5 +405,6 @@
         private System.Windows.Forms.TextBox textBoxTotalFinal;
         private System.Windows.Forms.Button btnGuardarVenta;
         private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

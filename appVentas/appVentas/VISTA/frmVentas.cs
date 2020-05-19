@@ -102,7 +102,7 @@ namespace appVentas.VISTA
             int i = 0;
             while ( i < dtvProductos.RowCount)
             {
-                String datosAOperar = dtvProductos.Rows[i].Cells[4].Value.ToString(); 
+                String datosAOperar = dtvProductos.Rows[i].Cells[4].Value.ToString();
                 Double datosConvertidos = Convert.ToDouble(datosAOperar);             
                 //suma = suma + datosConvertidos;                                                                                                                        
                 suma += datosConvertidos;
@@ -165,7 +165,7 @@ namespace appVentas.VISTA
 
                 for (int i = 0; i < dtvProductos.RowCount; i++)
                 {
-                    String idProducto = dtvProductos.Rows[i].Cells[0].Value.ToString(); 
+                    String idProducto = dtvProductos.Rows[i].Cells[0].Value.ToString(); //
                     int idProductoConvertidos = Convert.ToInt32(idProducto);
 
                     String cantidad = dtvProductos.Rows[i].Cells[3].Value.ToString(); 
@@ -190,6 +190,8 @@ namespace appVentas.VISTA
                 
             }
             retornoid();
+            dtvProductos.Rows.Clear();
+            textBoxTotalFinal.Text = "";
         }
 
         private void textBoxBuscarProducto_KeyUp(object sender, KeyEventArgs e)
@@ -214,6 +216,7 @@ namespace appVentas.VISTA
                     textBoxPrecioDeProducto.Text = Convert.ToString(pr.precioProducto);
                     textBoxCantidad.Focus();
                     textBoxBuscarProducto.Text = "";
+                    intentos = 2;
                 }
             }
         }
@@ -235,9 +238,21 @@ namespace appVentas.VISTA
                     intentos = 0;
                     textBoxCantidad.Text = "1";
                     textBoxBuscarProducto.Focus();
+                    
                 }
             }
-            intentos += 1;
+            intentos = 1;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void btnEliminarDatosDeDatagrid_Click(object sender, EventArgs e)
+        {
+            dtvProductos.Rows.Clear();
+            textBoxTotalFinal.Text = "";
         }
     }
 }
