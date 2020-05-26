@@ -59,6 +59,7 @@
             this.btnGuardarVenta = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,6 +238,7 @@
             this.dtvProductos.ReadOnly = true;
             this.dtvProductos.Size = new System.Drawing.Size(843, 150);
             this.dtvProductos.TabIndex = 31;
+            this.dtvProductos.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dtvProductos_RowsRemoved);
             // 
             // CODIGO
             // 
@@ -332,12 +334,23 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Location = new System.Drawing.Point(820, 229);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.TabIndex = 39;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 598);
             this.ControlBox = false;
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.btnGuardarVenta);
@@ -406,5 +419,6 @@
         private System.Windows.Forms.Button btnGuardarVenta;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

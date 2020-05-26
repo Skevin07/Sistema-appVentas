@@ -75,8 +75,8 @@ namespace appVentas.VISTA
         private void dtvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            String Email = dtvUsuarios.CurrentRow.Cells[1].Value.ToString();
-            String Contra = dtvUsuarios.CurrentRow.Cells[2].Value.ToString();
+            String Email = dtvUsuarios.CurrentRow.Cells[0].Value.ToString();
+            String Contra = dtvUsuarios.CurrentRow.Cells[1].Value.ToString();
 
             txtUsuario.Text = Email;
             txtContraseña.Text = Contra;
@@ -120,6 +120,11 @@ namespace appVentas.VISTA
         private void Usuario_Load(object sender, EventArgs e)
         {
             cargardatos();
+        }
+
+        private void dtvUsuarios_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+
         }
     }
 }

@@ -98,17 +98,14 @@ namespace appVentas.VISTA
             }
 
             dtvProductos.Rows.Add(textBoxidProducto.Text, textBoxNombreDeProducto.Text, textBoxPrecioDeProducto.Text, textBoxCantidad.Text, textBoxTotal.Text);
-            Double suma = 0;
-            int i = 0;
-            while ( i < dtvProductos.RowCount)
-            {
-                String datosAOperar = dtvProductos.Rows[i].Cells[4].Value.ToString();
-                Double datosConvertidos = Convert.ToDouble(datosAOperar);             
-                //suma = suma + datosConvertidos;                                                                                                                        
-                suma += datosConvertidos;
-                textBoxTotalFinal.Text = suma.ToString();
-                i++;
-            }
+            CalcularTotalFinal();
+
+
+            dtvProductos.Refresh();
+            dtvProductos.ClearSelection();
+            int ObtenerUltimaFila = dtvProductos.Rows.Count - 1;
+            dtvProductos.FirstDisplayedScrollingRowIndex = ObtenerUltimaFila;
+            dtvProductos.Rows[ObtenerUltimaFila].Selected = true;
         }
 
         private void textBoxCantidad_TextChanged(object sender, EventArgs e)
@@ -139,6 +136,21 @@ namespace appVentas.VISTA
               
                 textBoxCantidad.Select();
 
+            }         
+        }
+
+        void CalcularTotalFinal()
+        {
+            Double suma = 0;
+            int i = 0;
+            while (i < dtvProductos.RowCount)
+            {
+                String datosAOperar = dtvProductos.Rows[0].Cells[4].Value.ToString();
+                Double datosConvertidos = Convert.ToDouble(datosAOperar);
+                //suma = suma + datosConvertidos;                                                                                                                        
+                suma += datosConvertidos;
+                textBoxTotalFinal.Text = suma.ToString();
+                i++;
             }
         }
 
@@ -253,6 +265,16 @@ namespace appVentas.VISTA
         {
             dtvProductos.Rows.Clear();
             textBoxTotalFinal.Text = "";
+        }
+
+        private void dtvProductos_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            CalcularTotalFinal();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            dtvProductos.Rows.Remove(dtvProductos.CurrentRow);
         }
     }
 }

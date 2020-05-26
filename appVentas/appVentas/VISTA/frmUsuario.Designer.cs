@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.dtvUsuarios = new System.Windows.Forms.DataGridView();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contrasena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCarga = new System.Windows.Forms.Button();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
@@ -37,8 +39,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contrasena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +54,17 @@
             this.dtvUsuarios.Size = new System.Drawing.Size(749, 220);
             this.dtvUsuarios.TabIndex = 0;
             this.dtvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvUsuarios_CellClick);
+            this.dtvUsuarios.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dtvUsuarios_RowsRemoved);
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // Contrasena
+            // 
+            this.Contrasena.HeaderText = "Contraseña";
+            this.Contrasena.Name = "Contrasena";
             // 
             // btnCarga
             // 
@@ -126,16 +137,6 @@
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Contraseña";
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // Contrasena
-            // 
-            this.Contrasena.HeaderText = "Contraseña";
-            this.Contrasena.Name = "Contrasena";
             // 
             // frmUsuario
             // 
